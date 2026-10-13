@@ -1,0 +1,169 @@
+/* Lokalny Informatyk - scroll-controlled hardware story. Standalone, no external libraries. */
+.li-hardware {
+  isolation: isolate;
+  background: linear-gradient(180deg, #0b1422 0%, #0a1321 57%, #080e18 100%);
+  overflow: clip;
+  padding-bottom: 95px;
+}
+.li-hardware::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: .4;
+  background: radial-gradient(ellipse 50% 25% at 20% 43%, rgba(25, 120, 178, .2), transparent 90%),
+              linear-gradient(90deg, transparent 0%, rgba(61, 113, 163, .04) 50%, transparent 100%);
+}
+.li-hardware-head { margin-bottom: 62px; }
+.li-headline-row { display: grid; grid-template-columns: minmax(0,1.3fr) minmax(220px,.7fr); align-items: end; gap: 50px; }
+.li-hardware-head h2 {
+  margin: 18px 0 0;
+  font-size: clamp(2.25rem,4.5vw,4.15rem);
+  letter-spacing: -.062em;
+  line-height: 1.12;
+  font-weight: 760;
+}
+.li-headline-row > p { color: var(--muted); line-height: 1.85; max-width: 380px; font-size: .97rem; margin: 0 0 7px; }
+.li-lab-layout { display: grid; grid-template-columns: minmax(0,1.18fr) minmax(0,.82fr); align-items: start; gap: clamp(24px,4.5vw,67px); }
+.li-lab-sticky { position: sticky; top: 104px; z-index: 3; }
+.li-lab-stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(90, 174, 217, .28);
+  border-radius: 25px;
+  background: radial-gradient(circle at 50% 46%, #173a54 0%, #101f33 35%, #091725 78%, #0b1624 100%);
+  box-shadow: 0 28px 80px rgba(1,5,15,.34), inset 0 1px 0 rgba(171,229,255,.06);
+  --li-cover: 0;
+  --li-parts: 0;
+  --li-cooling: 0;
+}
+.li-lab-stage::after { content: ''; pointer-events: none; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 -28px 35px rgba(1,9,20,.12); }
+.li-lab-topline, .li-lab-footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 17px 21px;
+  position: relative;
+  z-index: 2;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: .64rem;
+  color: #83a1b9;
+  letter-spacing: .09em;
+}
+.li-lab-topline { border-bottom: 1px solid rgba(124,183,223,.12); }
+.li-lab-topline > span:last-child { color: #76dbee; font-size: .74rem; }
+.li-live-pulse { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #86f5d5; box-shadow: 0 0 11px rgba(103,247,208,.7); margin-right: 8px; }
+.li-laptop-art { position: relative; aspect-ratio: 800 / 640; width: 100%; }
+.li-art-grid {
+  pointer-events: none;
+  position: absolute; inset: 0;
+  opacity: .26;
+  background-image: linear-gradient(rgba(126,187,222,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(126,187,222,.15) 1px,transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(ellipse 62% 55% at 50% 50%, black, transparent 95%);
+}
+.li-laptop-svg { display: block; width: 100%; height: 100%; position: relative; overflow: visible; }
+.li-svg-screen,.li-svg-board,.li-svg-keyboard,.li-svg-ram,.li-svg-ssd,.li-svg-fan { transform-box: fill-box; transform-origin: center; will-change: transform; }
+.li-svg-screen { transform: translateY(calc(var(--li-cover) * -12px)); }
+.li-svg-board { transform: translateY(calc(var(--li-cover) * -24px)); opacity: calc(.6 + var(--li-cover) * .4); }
+.li-svg-keyboard { transform: translateY(calc(var(--li-cover) * 122px)); }
+.li-svg-ram { transform: translate(calc(var(--li-parts) * 5px), calc(22px - var(--li-parts) * 160px)); }
+.li-svg-ssd { transform: translate(calc(var(--li-parts) * 50px), calc(var(--li-parts) * -95px)); }
+.li-svg-fan { transform: translate(calc(var(--li-cooling) * -79px),calc(var(--li-cooling) * -90px)); }
+.li-hardware-chip {
+  z-index: 2;
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 11px;
+  color: #ddf6ff;
+  background: rgba(10,30,46,.94);
+  border: 1px solid rgba(106,218,244,.46);
+  box-shadow: 0 10px 25px rgba(0,8,18,.35);
+  border-radius: 9px;
+  white-space: nowrap;
+  font: 700 .65rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .12em;
+  pointer-events: none;
+}
+.li-chip-dot { display: block; width: 5px; height: 5px; background: #85f5d7; border-radius: 50%; box-shadow: 0 0 8px #85f5d7; }
+.li-chip-ram { left: 51%; top: 23%; opacity: clamp(0,calc((var(--li-parts) - .45) * 2.4),1); transform: translateY(calc((1 - var(--li-parts)) * 14px)); }
+.li-chip-ssd { right: 5%; top: 43%; opacity: clamp(0,calc((var(--li-parts) - .45) * 2.4),1); transform: translateY(calc((1 - var(--li-parts)) * 14px)); }
+.li-chip-fan { left: 8%; top: 39%; opacity: clamp(0,calc((var(--li-cooling) - .4) * 2),1); transform: translateY(calc((1 - var(--li-cooling)) * 14px)); }
+.li-lab-footer { padding-top: 12px; padding-bottom: 17px; border-top: 1px solid rgba(124,183,223,.12); }
+.li-lab-progress { height: 3px; background: #274055; width: 100px; border-radius: 5px; overflow: hidden; }
+.li-lab-progress > i { display: block; height: 100%; width: 100%; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg,#45c7f8,#85f5d7); }
+.li-lab-note { font-size: .7rem; color: #768ba4; margin: 10px 5px 0; line-height: 1.5; }
+.li-lab-steps { position: relative; padding-left: 24px; margin-top: 10px; }
+.li-lab-steps::before { content: ''; position: absolute; top: 15px; bottom: 29%; left: 3px; width: 1px; background: linear-gradient(180deg,#45c7f8,rgba(69,199,248,.24),transparent); }
+.li-hardware-step {
+  min-height: clamp(330px,68vh,600px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 34px 18px 40px 13px;
+  border-bottom: 1px solid rgba(135,182,216,.13);
+  opacity: .48;
+  transition: opacity .3s ease;
+  scroll-margin-top: 150px;
+}
+.li-hardware-step.is-current { opacity: 1; }
+.li-hardware-step::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: -24px; width: 9px; height: 9px; border-radius: 50%;
+  background: #263c54;
+  box-shadow: 0 0 0 6px #0b1524;
+  border: 1px solid #52718f;
+  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.li-hardware-step.is-current::before { background: #85f5d7; border-color: #a2ffeb; box-shadow: 0 0 0 6px #0b1524, 0 0 22px #4fe8c5; }
+.li-step-kicker { color: #83d6ec; letter-spacing: .16em; font: 740 .72rem ui-monospace,SFMono-Regular,Consolas,monospace; }
+.li-step-kicker span { color: #55748f; padding-inline: 8px; }
+.li-hardware-step h3 { font-size: clamp(2rem, 2.55vw, 2.9rem); line-height: 1.13; letter-spacing: -.052em; font-weight: 745; margin: 20px 0 24px; }
+.li-hardware-step h3 span { color: var(--blue); }
+.li-hardware-step p { max-width: 420px; color: #a7bcd0; font-size: .96rem; line-height: 1.85; margin: 0; }
+.li-step-tag { align-self: flex-start; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(86,201,241,.26); background: rgba(54,155,194,.08); color: #a9def2; font-size: .78rem; margin-top: 24px; }
+.li-lab-cta { align-self: flex-start; margin-top: 23px; }
+@media (max-width: 1000px) {
+  .li-lab-layout { gap: 18px; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); }
+  .li-hardware-step h3 { font-size: 2rem; }
+  .li-hardware-step { min-height: 60vh; }
+  .li-lab-topline,.li-lab-footer { font-size: .55rem; padding-inline: 14px; }
+}
+@media (max-width: 760px) {
+  .li-hardware { padding-top: 78px; padding-bottom: 85px; }
+  .li-headline-row { grid-template-columns: 1fr; gap: 18px; }
+  .li-headline-row > p { max-width: 600px; }
+  .li-hardware-head { margin-bottom: 28px; }
+  .li-lab-layout { display: block; }
+  .li-lab-sticky { position: sticky; top: 77px; z-index: 5; max-width: 580px; margin: 0 auto; }
+  .li-lab-stage { box-shadow: 0 15px 48px rgba(0,6,14,.6); }
+  .li-laptop-art { aspect-ratio: 800/445; overflow: hidden; }
+  .li-laptop-svg { height: auto; width: 100%; transform: translateY(-8%); }
+  .li-lab-topline { padding: 10px 13px; font-size: .54rem; }
+  .li-lab-footer { padding: 9px 12px; font-size: .48rem; }
+  .li-lab-progress { width: 58px; }
+  .li-lab-note { display: none; }
+  .li-hardware-chip { font-size: .48rem; padding: 5px 6px; gap: 4px; }
+  .li-lab-steps { margin: 24px auto 0; max-width: 580px; padding-left: 22px; }
+  .li-lab-steps::before { left: 2px; }
+  .li-hardware-step { padding: 32px 5px 35px 13px; min-height: max(340px,58vh); opacity: .68; }
+  .li-hardware-step::before { left: -24px; }
+  .li-hardware-step h3 { font-size: clamp(1.9rem, 5.5vw, 2.65rem); }
+  .li-hardware-step p { font-size: .91rem; }
+}
+@media (max-width: 440px) {
+  .li-hardware-head h2 { font-size: 2.16rem; }
+  .li-lab-topline { font-size: .44rem; }
+  .li-lab-footer { font-size: .42rem; }
+  .li-laptop-art { aspect-ratio: 800/430; }
+  .li-chip-ram { top: 17%; }
+  .li-chip-fan { top: 32%; }
+  .li-hardware-step { min-height: 63vh; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .li-hardware-step { opacity: 1; transition: none; }
+  .li-svg-screen,.li-svg-board,.li-svg-keyboard,.li-svg-ram,.li-svg-ssd,.li-svg-fan { will-change: auto; }
+}
