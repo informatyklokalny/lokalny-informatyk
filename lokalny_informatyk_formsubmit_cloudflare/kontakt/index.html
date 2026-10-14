@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Kontakt | Lokalny Informatyk</title><meta name="description" content="Opisz problem z komputerem, laptopem, drukarką lub stroną internetową. Skontaktuj się z Lokalnym Informatykiem."/>
 <meta name="theme-color" content="#080e18"/><meta name="color-scheme" content="dark"/><meta property="og:type" content="website"/><meta property="og:locale" content="pl_PL"/><meta property="og:title" content="Kontakt | Lokalny Informatyk"/><meta property="og:description" content="Opisz problem z komputerem, laptopem, drukarką lub stroną internetową. Skontaktuj się z Lokalnym Informatykiem."/>
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"/><link rel="stylesheet" href="/assets/css/style.css"/>
-<script defer src="/assets/js/config.js"></script><script defer src="/assets/js/main.js"></script></head>
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"/><link rel="stylesheet" href="/assets/css/style.css"/><link rel="stylesheet" href="/assets/css/terminal-form.css"/>
+<script defer src="/assets/js/config.js"></script><script defer src="/assets/js/main.js"></script><script defer src="/assets/js/terminal-form.js"></script></head>
 <body data-page="contact"><div class="site-background" aria-hidden="true"></div><a class="skip-link" href="#main">Przejdź do treści</a>
 <div class="scroll-progress" aria-hidden="true"></div>
 <header class="site-header"><div class="container header-inner">
@@ -21,25 +21,78 @@
 <div class="contact-option"><div class="option-icon"><svg class="ico " aria-hidden="true"><use href="/assets/icons.svg#map-pin"></use></svg></div><div><h3>Obszar działania</h3><p data-locality>Twoja miejscowość i okolice</p><p>Dokładną możliwość pomocy i dojazdu ustalam indywidualnie.</p></div></div>
 <div class="contact-option"><div class="option-icon"><svg class="ico " aria-hidden="true"><use href="/assets/icons.svg#clock"></use></svg></div><div><h3>Termin i wycena</h3><p>Po krótkim opisie sprawy ustalimy możliwy termin, zakres i przewidywany koszt.</p></div></div>
 <div class="contact-option" data-contact-optional hidden><div class="option-icon"><svg class="ico " aria-hidden="true"><use href="/assets/icons.svg#mail"></use></svg></div><div><h3>Pozostałe dane kontaktowe</h3><a href="#" data-contact-email hidden></a><a href="#" data-contact-phone hidden></a></div></div>
-</div><div class="contact-form" data-reveal style="--delay:110ms">
-<div class="form-heading"><span class="eyebrow">Szybkie zgłoszenie</span><h2>Wyślij zapytanie w minutę</h2><p class="form-lead">Wypełnij formularz, a otrzymam wiadomość z opisem problemu. Oddzwonię na podany numer. Nie potrzebujesz własnego adresu e-mail.</p></div>
-<form data-inquiry-form action="https://formsubmit.co/informatyk.lokalny@gmail.com" method="post">
-<input type="hidden" name="_subject" value="Nowe zgłoszenie | Lokalny Informatyk"/>
-<input type="hidden" name="_template" value="table"/>
-<input type="hidden" name="_captcha" value="false"/>
-<input type="hidden" name="_url" value="https://lokalny-informatyk.pages.dev/kontakt/"/>
-<input type="hidden" name="_next" value="https://lokalny-informatyk.pages.dev/dziekujemy/"/>
-<div class="form-field"><label for="contact-name">Imię i nazwisko <span class="required-star" aria-hidden="true">*</span></label><input id="contact-name" name="name" type="text" minlength="3" maxlength="100" placeholder="Np. Anna Nowak" autocomplete="name" required/></div>
-<div class="form-field"><label for="contact-phone">Numer telefonu <span class="required-star" aria-hidden="true">*</span></label><input id="contact-phone" name="phone" type="tel" minlength="7" maxlength="24" inputmode="tel" autocomplete="tel" placeholder="Np. 500 600 700" required/><small class="field-help">Użyję numeru wyłącznie, żeby odpowiedzieć na Twoje zgłoszenie.</small></div>
-<div class="form-field"><label for="contact-city">Miejscowość <span class="required-star" aria-hidden="true">*</span></label><input id="contact-city" name="city" type="text" minlength="2" maxlength="100" autocomplete="address-level2" placeholder="Np. Grójec" required/></div>
-<div class="form-field"><label for="contact-topic">Czego dotyczy problem? <span class="required-star" aria-hidden="true">*</span></label><select id="contact-topic" name="topic" required><option value="" disabled selected>Wybierz kategorię</option><option value="Komputer lub laptop">Komputer lub laptop</option><option value="Windows i oprogramowanie">Windows i oprogramowanie</option><option value="Drukarka lub Wi-Fi">Drukarka lub Wi-Fi</option><option value="Kopia danych">Kopia danych</option><option value="Strona internetowa">Strona internetowa</option><option value="Inne">Coś innego</option></select></div>
-<div class="form-field"><label for="contact-description">Opisz problem <span class="required-star" aria-hidden="true">*</span></label><textarea id="contact-description" name="description" minlength="10" maxlength="2000" placeholder="Np. Laptop bardzo wolno się uruchamia i czasami zawiesza się podczas pracy…" required></textarea></div>
-<div class="honeypot" aria-hidden="true"><label for="contact-website">Zostaw to pole puste</label><input id="contact-website" name="_honey" type="text" tabindex="-1" autocomplete="off"/></div>
-<p class="form-privacy">Dane z formularza zostaną przekazane przez usługę FormSubmit na mój adres e-mail w celu obsługi zgłoszenia. Przed wysłaniem zapoznaj się z <a href="/prywatnosc/">informacją o przetwarzaniu danych</a>.</p>
-<button data-submit-inquiry type="submit" class="btn btn-primary"><svg class="ico" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"></use></svg><span data-submit-text>Wyślij zgłoszenie</span></button>
-<p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
-</form>
-<div class="form-success" data-form-success hidden tabindex="-1" role="status"><div class="success-mark"><svg class="ico" aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg></div><h2>Dziękuję za wysłanie zapytania!</h2><p>Formularz został przyjęty przez usługę wysyłkową. Skontaktuję się z Tobą telefonicznie po zapoznaniu się z problemem.</p><button type="button" class="btn btn-secondary" data-new-inquiry>Wyślij kolejne zgłoszenie</button></div>
+</div><div class="contact-form contact-form-terminal" data-reveal style="--delay:110ms">
+  <div class="form-heading terminal-heading">
+    <div class="terminal-heading-top">
+      <img class="terminal-brand-icon" src="/assets/images/lokalny-logo-ikona.webp" alt="" width="76" height="66" loading="lazy"/>
+      <div><span class="eyebrow">Szybkie zgłoszenie</span><h2>Wyślij zapytanie w minutę</h2></div>
+    </div>
+    <p class="form-lead">Odpowiedz na kilka krótkich pytań. Po wysłaniu oddzwonię na podany numer — nie potrzebujesz własnego e-maila.</p>
+  </div>
+
+  <form data-inquiry-form data-console-form action="https://formsubmit.co/informatyk.lokalny@gmail.com" method="post" novalidate>
+    <input type="hidden" name="name" id="contact-name"/>
+    <input type="hidden" name="_subject" value="Nowe zgłoszenie | Lokalny Informatyk"/>
+    <input type="hidden" name="_template" value="table"/>
+    <input type="hidden" name="_captcha" value="false"/>
+    <input type="hidden" name="_url" value="https://lokalny-informatyk.pages.dev/kontakt/"/>
+    <input type="hidden" name="_next" value="https://lokalny-informatyk.pages.dev/dziekujemy/"/>
+
+    <div class="console-shell" aria-label="Konsola zgłoszeniowa">
+      <div class="console-topline"><div class="console-dots" aria-hidden="true"><i></i><i></i><i></i></div><span>LOKALNY IT / ZGŁOSZENIE</span><span class="console-online"><span aria-hidden="true"></span> gotowe</span></div>
+      <div class="console-progress-head"><span data-progress-label>Krok 1 z 6</span><span data-progress-percent>0%</span></div>
+      <div class="console-progress-track" role="progressbar" aria-label="Postęp wypełniania zgłoszenia" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progress-track><span data-progress-fill></span></div>
+      <div class="console-history" data-console-history aria-live="polite" aria-relevant="additions"><div class="console-welcome"><span class="console-prompt" aria-hidden="true">&gt;</span><div>Witaj! Pomogę Ci przygotować zgłoszenie.<br/><span>Odpowiadaj kolejno na krótkie pytania.</span></div></div></div>
+
+      <div class="console-stage" data-console-stage="0">
+        <label for="console-first"><span class="console-prompt" aria-hidden="true">&gt;</span> Jak masz na imię?</label>
+        <input id="console-first" name="first_name" type="text" autocomplete="given-name" maxlength="60" placeholder="Np. Anna" aria-describedby="console-hint-0 console-error-0"/>
+        <small id="console-hint-0" class="console-help">Wpisz imię, bez cyfr.</small><p class="console-error" id="console-error-0" data-console-error hidden role="alert"></p>
+      </div>
+      <div class="console-stage" data-console-stage="1" hidden>
+        <label for="console-last"><span class="console-prompt" aria-hidden="true">&gt;</span> Podaj swoje nazwisko.</label>
+        <input id="console-last" name="last_name" type="text" autocomplete="family-name" maxlength="70" placeholder="Np. Nowak" aria-describedby="console-error-1"/>
+        <p class="console-error" id="console-error-1" data-console-error hidden role="alert"></p>
+      </div>
+      <div class="console-stage" data-console-stage="2" hidden>
+        <label for="console-phone"><span class="console-prompt" aria-hidden="true">&gt;</span> Na jaki numer mogę oddzwonić?</label>
+        <input id="console-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="22" placeholder="Np. 500 600 700" aria-describedby="console-hint-2 console-error-2"/>
+        <small id="console-hint-2" class="console-help">Polski numer: 9 cyfr lub z prefiksem +48.</small><p class="console-error" id="console-error-2" data-console-error hidden role="alert"></p>
+      </div>
+      <div class="console-stage" data-console-stage="3" hidden>
+        <label for="console-city"><span class="console-prompt" aria-hidden="true">&gt;</span> W jakiej miejscowości potrzebujesz pomocy?</label>
+        <input id="console-city" name="city" type="text" autocomplete="address-level2" maxlength="90" placeholder="Np. Grójec" aria-describedby="console-error-3"/>
+        <p class="console-error" id="console-error-3" data-console-error hidden role="alert"></p>
+      </div>
+      <div class="console-stage" data-console-stage="4" hidden>
+        <label for="console-topic"><span class="console-prompt" aria-hidden="true">&gt;</span> Czego dotyczy problem?</label>
+        <select id="console-topic" name="topic" aria-describedby="console-error-4"><option value="">Wybierz jedną kategorię</option><option>Komputer lub laptop</option><option>Telefon</option><option>Windows i oprogramowanie</option><option>Drukarka lub Wi-Fi</option><option>Kopia danych</option><option>Strona internetowa</option><option>Coś innego</option></select>
+        <p class="console-error" id="console-error-4" data-console-error hidden role="alert"></p>
+      </div>
+      <div class="console-stage" data-console-stage="5" hidden>
+        <label for="console-description"><span class="console-prompt" aria-hidden="true">&gt;</span> Opisz, co się dzieje ze sprzętem.</label>
+        <textarea id="console-description" name="description" minlength="10" maxlength="2000" rows="5" placeholder="Np. Laptop bardzo wolno się uruchamia i czasami się zawiesza…" aria-describedby="console-hint-5 console-error-5"></textarea>
+        <small id="console-hint-5" class="console-help">Minimum 10 znaków. Opis nie musi być techniczny.</small><p class="console-error" id="console-error-5" data-console-error hidden role="alert"></p>
+      </div>
+
+      <div class="console-review" data-console-review hidden>
+        <div class="console-review-banner"><span class="console-prompt" aria-hidden="true">✓</span><div><strong>Zgłoszenie gotowe do wysłania</strong><p>Sprawdź dane i kliknij „Wyślij zgłoszenie”.</p></div></div>
+        <dl class="console-review-list" data-console-summary></dl>
+      </div>
+      <div class="console-controls" data-console-controls><button type="button" class="console-back" data-console-back hidden>← Wstecz</button><button type="button" class="console-next" data-console-next>Dalej <span aria-hidden="true">→</span></button></div>
+    </div>
+
+    <div class="honeypot" aria-hidden="true"><label for="contact-website">Zostaw to pole puste</label><input id="contact-website" name="_honey" type="text" tabindex="-1" autocomplete="off"/></div>
+    <div class="console-submit-area" data-console-submit-area hidden>
+      <label class="console-checkbox"><input type="checkbox" data-privacy-ack/><span>Zapoznałem/am się z <a href="/prywatnosc/" target="_blank" rel="noopener">informacją o przetwarzaniu danych</a>.</span></label>
+      <p class="form-privacy">Dane formularza są przekazywane przez usługę FormSubmit na mój adres e-mail w celu obsługi zgłoszenia. Nie są wykorzystywane do newslettera.</p>
+      <p class="console-error" data-privacy-error role="alert" hidden></p>
+      <button data-submit-inquiry type="submit" class="btn btn-primary"><svg class="ico" aria-hidden="true"><use href="/assets/icons.svg#arrow-up-right"></use></svg><span data-submit-text>Wyślij zgłoszenie</span></button>
+    </div>
+    <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+    <noscript><p class="form-status error">Aby skorzystać z interaktywnego formularza, włącz JavaScript lub <a href="https://www.facebook.com/profile.php?id=61594955087010">napisz przez Facebooka</a>.</p></noscript>
+  </form>
+  <div class="form-success" data-form-success hidden tabindex="-1" role="status"><div class="success-mark"><svg class="ico" aria-hidden="true"><use href="/assets/icons.svg#check"></use></svg></div><h2>Dziękuję za wysłanie zapytania!</h2><p>Formularz został przyjęty przez usługę wysyłkową. Skontaktuję się z Tobą telefonicznie po zapoznaniu się z problemem.</p><button type="button" class="btn btn-secondary" data-new-inquiry>Wyślij kolejne zgłoszenie</button></div>
 </div></div></section>
 <section class="section"><div class="container"><div class="section-heading" data-reveal><span class="eyebrow">Warto wiedzieć</span><h2>Często zadawane <span class="accent">pytania.</span></h2></div><div class="faq-grid">
 <details data-reveal><summary>Czy muszę znać przyczynę usterki? <svg class="ico " aria-hidden="true"><use href="/assets/icons.svg#chevron-down"></use></svg></summary><p>Nie. Wystarczy opis objawów. Po wstępnym rozeznaniu powiem, czy mogę się tym zająć i co będzie potrzebne.</p></details>
